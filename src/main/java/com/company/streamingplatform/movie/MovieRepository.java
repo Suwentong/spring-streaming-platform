@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface MovieRepository extends JpaRepository<Movie, Long> {
 
     Optional<List<Movie>> findAllByOrderByIdAsc();
+
+    Optional<List<Movie>> findByTitleContainingIgnoreCase(String title);
 }

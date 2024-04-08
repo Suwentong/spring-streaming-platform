@@ -26,11 +26,19 @@ public class MovieService {
         return ResponseEntity.ok(movieList);
     }
 
-    public ResponseEntity<Object> getMovieById(Long id) {
+    public ResponseEntity<Movie> getMovieById(Long id) {
         Movie movie = movieRepository.findById(id).orElse(null);
         if (movie == null) {
             throw new EntityNotFoundException("Movie not found");
         }
         return ResponseEntity.ok(movie);
+    }
+
+    public ResponseEntity<List<Movie>> searchMovie(String title) {
+        if (title != null && !title.isEmpty()) {
+            return ResponseEntity.ok(movieRepository.findByTitleContainingIgnoreCase(title).orElse(null));
+        } else {
+            return ResponseEntity.ok(movieRepository.findAll());
+        }
     }
 }

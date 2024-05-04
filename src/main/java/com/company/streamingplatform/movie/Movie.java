@@ -5,8 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.time.LocalDateTime;
+import java.util.Map;
 
 @Data
 @Builder
@@ -29,8 +32,10 @@ public class Movie {
     private String genre;
     private Double rating;
     private String cover_image_url;
-    private String trailer_url;
-    private String movie_url;
+    @JdbcTypeCode(SqlTypes.JSON)
+    private Map<String, String> trailer_url;
+    @JdbcTypeCode(SqlTypes.JSON)
+    private Map<String, String> movie_url;
     private LocalDateTime created_at;
     private LocalDateTime updated_at;
 }

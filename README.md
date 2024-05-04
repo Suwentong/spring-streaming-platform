@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Suwentong/spring-streaming-platform">
-    <img src="images/project_logo.png" alt="Logo" width="160" height="200">
+    <img src="src/main/resources/static/images/project_logo.png" alt="Logo" width="256" height="256">
   </a>
 
   <h3 align="center">Netflix-style video on demand (VOD) service</h3>
